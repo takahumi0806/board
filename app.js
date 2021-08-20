@@ -1,7 +1,34 @@
-var express = require("express");
-var app = express();
+const express = require('express')
+const app = express()
+const port = 3000
+const passport = require('passport');
+const ejs = require('ejs')
+const bodyParser = require('body-parser')
+const session = require('express-session');
 
-/* 2. listen()メソッドを実行して3000番ポートで待ち受け。*/
-var server = app.listen(3000, function(){
-    console.log("Node.js is listening to PORT:" + server.address().port);
-});
+app.use(session({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: false,
+}));
+
+
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(passport.initialize());
+app.use(express.urlencoded( { extended: false }))
+app.use('/', require('./routes/index'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
