@@ -59,7 +59,6 @@ router.use(passport.session());
 
 passport.use(new LocalStrategy(
   (email, password, done) => {
-    console.log(email)
     const sql = "select * from users"
     con.query(sql, function (err, result, fields) {  
       const currentUser = result.filter((value) => {
@@ -120,6 +119,7 @@ router.post('/', (req, res) => {
 	con.query(sql,req.body,function(err, result, fields){
 		if (err) throw err;
     const token = jwt.sign({name: req.body.name, email: req.body.email}, 'secret')
+    req.session.passport = {user: {token: token}}
 		console.log(result);
     console.log(req.body)
 		jwt.verify(token,'secret',(err,user)=>{
@@ -128,7 +128,7 @@ router.post('/', (req, res) => {
       }else{
         console.log(user)
         console.log(user.name)
-        res.render('login',{user: user.name})
+        res.redirect('/login');
       }
     })
     
