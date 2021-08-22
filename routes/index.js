@@ -98,6 +98,9 @@ router.get('/', (req, res) => {
   console.log(req.session);
   res.render('index')
 })
+router.get('/register', (req, res) => {
+  res.render('register')
+})
 router.get('/login', (req, res) => {
   if(req.session.passport === undefined){
     res.redirect('/');

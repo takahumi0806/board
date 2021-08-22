@@ -5,7 +5,7 @@ const passport = require('passport');
 const ejs = require('ejs')
 const bodyParser = require('body-parser')
 const session = require('express-session');
-
+app.use(express.static('public'));
 app.use(session({
   secret: 'keyboard cat',
   resave: true,
