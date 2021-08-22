@@ -19,16 +19,4 @@ app.use(passport.initialize());
 app.use(express.urlencoded( { extended: false }))
 app.use('/', require('./routes/index'));
 
-
-
-
-
-
-
-
-
-
-
-
-
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
