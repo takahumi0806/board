@@ -91,7 +91,7 @@ router.get('/failure', (req, res) => {
 router.get('/success', (req, res) => {
   const token = jwt.sign({name: req.session.passport.user.username, email: req.session.passport.user.email}, 'secret')
   req.session.passport.user['token'] = token
-  res.redirect('/login');
+  res.redirect('/post');
 });
 
 router.get('/', (req, res) => {
@@ -101,7 +101,7 @@ router.get('/', (req, res) => {
 router.get('/register', (req, res) => {
   res.render('register')
 })
-router.get('/login', (req, res) => {
+router.get('/post', (req, res) => {
   if(req.session.passport === undefined){
     res.redirect('/');
   } else {
@@ -112,7 +112,7 @@ router.get('/login', (req, res) => {
       }else{
         console.log(user)
         console.log(user.name)
-        res.render('login',{user: user.name})
+        res.render('post',{user: user.name})
       }
     })
   }
@@ -131,7 +131,7 @@ router.post('/', (req, res) => {
       }else{
         console.log(user)
         console.log(user.name)
-        res.redirect('/login');
+        res.redirect('/post');
       }
     })
     
