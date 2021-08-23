@@ -2,18 +2,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>入力フォーム</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
   <header>
     <div id='lesson'>Node.js Lesson4</div>
     <ul>
-      <a href="#"><li >みんなの投稿</li></a>
+      <a href="/bord"><li >みんなの投稿</li></a>
       <a href="/post"><li>投稿を作成</li></a>
-      <a href="/"><li>Login</li></a>
-      <li><%= user %></li>
+      <li id="username"><%= user %></li>
     </ul>
   </header>
+  <span id="append"></span>
   <form action="/login" method="POST">
     <table align="center" id='post'>
       <tr>
@@ -26,7 +27,6 @@
         <td>コンテンツ</td>
       </tr>
       <tr>
-        
         <td><textarea name="content" rows="4" cols="40" style="width: 1008px;height: 204px;"></textarea></td>
       </tr>
       <tr>
@@ -37,4 +37,17 @@
     </table>
   </form>
 </body>
+<script>
+  $(document).ready(() => {
+    $('#username').click(() => {
+      console.log('OK')
+      const logout =
+        '<form action="/logout" method="post">' +
+        '<input type="submit" value="LOGOUT">' +
+        '</form>';
+      $('#append').append(logout);
+    });
+   
+  });
+</script>
 </html>

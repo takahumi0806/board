@@ -26,4 +26,16 @@ header{
 #post{
   width: 1000px;
 }
-
+span{
+  float: right;
+  padding-right: 70px;
+}
+.content{
+  color: black;
+}
+#bord{
+  padding: 0.5em 1em;
+  margin-top: 30px;
+  font-weight: bold;
+  border: solid 1px #000000;
+}

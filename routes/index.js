@@ -5,6 +5,7 @@ const mysql = require('mysql');
 const LocalStrategy = require('passport-local').Strategy;
 const passport = require('passport');
 const jwt = require('jsonwebtoken')
+const userController = require('../controllers/UserController');
 
 const con = mysql.createConnection({
   host: 'localhost',
@@ -93,15 +94,16 @@ router.get('/success', (req, res) => {
   req.session.passport.user['token'] = token
   res.redirect('/post');
 });
-
-router.get('/', (req, res) => {
-  console.log(req.session);
-  res.render('index')
-})
+router.get('/', userController.doGetUser);
+// router.get('/', (req, res) => {
+//   console.log(req.session);
+//   res.render('index')
+// })
 router.get('/register', (req, res) => {
   res.render('register')
 })
 router.get('/post', (req, res) => {
+  console.log(req.session.passport)
   if(req.session.passport === undefined){
     res.redirect('/');
   } else {
@@ -145,5 +147,23 @@ router.post('/login',
     }
   ),
 );
+
+router.get('/bord', (req, res) => {
+  console.log(req.session.passport)
+  if(req.session.passport === undefined){
+    res.redirect('/');
+  } else {
+    console.log('bord')
+    res.render('bord')
+  }
+})
+  
+  
+
+
+router.post('/logout', (req, res) => {
+  req.session.passport = undefined;
+  res.redirect('/');
+});
 
 module.exports = router;
