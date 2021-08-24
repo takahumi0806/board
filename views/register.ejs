@@ -1,58 +1,58 @@
 <html lang="ja">
-<head>
-	<meta charset="UTF-8">
-	<title>入力フォーム</title>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
-</head>
-<body>
-  <header>
-    <div id='lesson'>Node.js Lesson4</div>
-    <ul>
-      <a href="/bord"><li >みんなの投稿</li></a>
-      <a href="/post"><li>投稿を作成</li></a>
-      <a href="/"><li>Login</li></a>
-      <a href="/register"><li>register</li></a>
+  <head>
+    <meta charset="UTF-8" />
+    <title>入力フォーム</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <header>
+      <div id="lesson">Node.js Lesson4</div>
+      <ul>
+        <a href="/bord"><li>みんなの投稿</li></a>
+        <a href="/post"><li>投稿を作成</li></a>
+        <a href="/"><li>Login</li></a>
+        <a href="/register"><li>register</li></a>
+      </ul>
+    </header>
+    <form action="/" method="POST">
+      <table align="center">
+        <tr>
+          <td>Name</td>
+        </tr>
+        <tr>
+          <td><input type="text" name="name" /></td>
+        </tr>
+        <tr>
+          <td>E-mail Address</td>
+        </tr>
+        <tr>
+          <td><input type="email" name="email" /></td>
+        </tr>
+        <tr>
+          <td>Password</td>
+        </tr>
+        <tr>
+          <td><input type="password" name="password" /></td>
+        </tr>
+        <tr>
+          <td>confirmPassword</td>
+        </tr>
+        <tr>
+          <td><input type="password" name="confirmPassword" /></td>
+        </tr>
+        <tr>
+          <td>
+            <input type="submit" value="新規登録" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <% if(errorMessage) { %>
+    <ul class="errorMessage">
+      <% errorMessage.forEach((error) => { %>
+      <li id="error"><%= error.msg %></li>
+      <% }) %>
     </ul>
-  </header>
-<form action="/" method="POST">
-  <table align="center">
-    <tr>
-      <td>Name</td>
-    </tr>
-    <tr>
-      <td><input type="text" name="name"></td>
-    </tr>
-    <tr>
-      <td>E-mail Address</td>
-    </tr>
-    <tr>
-      <td><input type="email" name="email"></td>
-    </tr>
-    <tr>
-      <td>Password</td>
-    </tr>
-    <tr>
-      <td><input type="password" name="password"></td>
-    </tr>
-    <tr>
-      <td>confirmPassword</td>
-    </tr>
-    <tr>
-      <td><input type="password" name="confirmPassword"></td>
-    </tr>
-    <tr>
-      <td>
-        <input type="submit" value="新規登録" />
-      </td>
-    </tr>
-  </table>
-</form>
-<% if(errorMessage) { %>
-  <ul class="errorMessage">
-    <% errorMessage.forEach((error) => { %>
-    <li id="error"><%= error.msg %></li>
-    <% }) %>
-  </ul>
-<% } %>
-</body>
+    <% } %>
+  </body>
 </html>

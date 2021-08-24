@@ -23,11 +23,11 @@ module.exports = {
   doGetUser: (req, res, error) => {
     console.log(req.session);
     res.render('index', {
-      errorMessage: ''
+      errorMessage: '',
     });
   },
   doGetRegistar: (req, res) => {
-    res.render ('register', {
+    res.render('register', {
       errorMessage: '',
     });
   },
@@ -35,8 +35,8 @@ module.exports = {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       const errorsArray = errors.array();
-      console.log(errorsArray)
-      res.render ('register', {
+      console.log(errorsArray);
+      res.render('register', {
         errorMessage: errorsArray,
       });
     } else {
@@ -45,9 +45,11 @@ module.exports = {
         const mail = result.filter((value) => {
           return value.email === req.body.email;
         });
-        if(mail.length === 1 ) {
-          res.render ('register', {
-            errorMessage: [{msg: 'すでに同じメールアドレスが登録されています。'}]
+        if (mail.length === 1) {
+          res.render('register', {
+            errorMessage: [
+              { msg: 'すでに同じメールアドレスが登録されています。' },
+            ],
           });
         } else {
           const sql = 'INSERT INTO users SET ?';
@@ -68,7 +70,6 @@ module.exports = {
           });
         }
       });
-
     }
   },
   doGetLogin: (req, res) => {
@@ -99,8 +100,8 @@ module.exports = {
   },
   doGetFailure: (req, res) => {
     res.render('index', {
-      errorMessage: [{msg: 'パスワードかemailが違います'}]
-    })
+      errorMessage: [{ msg: 'パスワードかemailが違います' }],
+    });
   },
   doPostLogout: (req, res) => {
     req.session.passport = undefined;
