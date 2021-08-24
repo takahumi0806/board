@@ -22,7 +22,6 @@ con.connect(function (err) {
 module.exports = {
   doGetUser: (req, res, error) => {
     console.log(req.session);
-    // res.render('index');
     res.render('index', {
       errorMessage: ''
     });
@@ -41,24 +40,35 @@ module.exports = {
         errorMessage: errorsArray,
       });
     } else {
-      const sql = 'INSERT INTO users SET ?';
-      con.query(sql, req.body, function (err, result, fields) {
-        if (err) throw err;
-        const token = jwt.sign(
-          { name: req.body.name, email: req.body.email },
-          'secret'
-        );
-        req.session.passport = { user: { token: token } };
-        jwt.verify(token, 'secret', (err, user) => {
-          if (err) {
-            return res.sendStatus(403);
-          } else {
-            console.log(user);
-            console.log(user.name);
-            res.redirect('/post');
-          }
+      const mysql = 'select * from users';
+      con.query(mysql, function (err, result, fields) {
+        const mail = result.filter((value) => {
+          return value.email === req.body.email;
         });
+        if(mail.length === 1 ) {
+          res.render ('register', {
+            errorMessage: [{msg: 'すでに同じメールアドレスが登録されています。'}]
+          });
+        } else {
+          const sql = 'INSERT INTO users SET ?';
+          con.query(sql, req.body, function (err, result, fields) {
+            if (err) throw err;
+            const token = jwt.sign(
+              { name: req.body.name, email: req.body.email },
+              'secret'
+            );
+            req.session.passport = { user: { token: token } };
+            jwt.verify(token, 'secret', (err, user) => {
+              if (err) {
+                return res.sendStatus(403);
+              } else {
+                res.redirect('/post');
+              }
+            });
+          });
+        }
       });
+
     }
   },
   doGetLogin: (req, res) => {
@@ -71,8 +81,6 @@ module.exports = {
         if (err) {
           return res.sendStatus(403);
         } else {
-          console.log(user);
-          console.log(user.name);
           res.render('post', { user: user.name });
         }
       });
@@ -90,9 +98,6 @@ module.exports = {
     res.redirect('/post');
   },
   doGetFailure: (req, res) => {
-    const errors = validationResult(req);
-    console.log(errors)
-    console.log(req.session);
     res.render('index', {
       errorMessage: [{msg: 'パスワードかemailが違います'}]
     })
@@ -102,13 +107,16 @@ module.exports = {
     res.redirect('/');
   },
   doGetBord: (req, res) => {
-    console.log(req.session.passport);
     if (req.session.passport === undefined) {
       res.redirect('/');
     } else {
-      console.log('bord');
-      res.render('bord', {
-         user: req.session.passport.user.username 
+      const token = req.session.passport.user.token;
+      jwt.verify(token, 'secret', (err, user) => {
+        if (err) {
+          return res.sendStatus(403);
+        } else {
+          res.render('bord', { user: user.name });
+        }
       });
     }
   },

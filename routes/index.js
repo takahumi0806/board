@@ -69,8 +69,6 @@ passport.use(
       const currentUser = result.filter((value) => {
         return value.email === email;
       });
-      console.log(currentUser);
-      console.log(currentUser.length);
       if (currentUser.length === 0) {
         // Error
         return done(null, false);
