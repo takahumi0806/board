@@ -21,6 +21,12 @@ $ npm install express --save
 $ npm install ejs --save
 $ npm install nodemon
 $ npm install mysql
+$ npm install passport
+$ npm install passport-local
+$ npm install jsonwebtoken
+$ npm install --save express-validator
+$ npm install -g db-migrate
+$ npm install db-migrate-mysql
  
 Requirementで列挙したライブラリなどのインストール方法を説明する
  
@@ -57,4 +63,4 @@ python demo.py
  
 社内向けなら社外秘であることを明示してる
  
-"hoge" is Confidential.っっd
+"hoge" is Confidential.
