@@ -16,7 +16,7 @@ exports.setup = function(options, seedLink) {
 
 exports.up = function(db) {
   db.createTable('users', {
-  id: {type: 'int'},
+  id: {type: 'int',autoIncrement: true , primaryKey: true},
   name: {type: 'string', allowNull: false},
   email: {type: 'string', allowNull: false, unique: true},
   password: {type: 'string', allowNull: false},
