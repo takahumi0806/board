@@ -35,11 +35,24 @@
       <td><input type="password" name="password"></td>
     </tr>
     <tr>
+      <td>confirmPassword</td>
+    </tr>
+    <tr>
+      <td><input type="password" name="confirmPassword"></td>
+    </tr>
+    <tr>
       <td>
         <input type="submit" value="新規登録" />
       </td>
     </tr>
   </table>
 </form>
+<% if(errorMessage) { %>
+  <ul class="errorMessage">
+    <% errorMessage.forEach((error) => { %>
+    <li id="error"><%= error.msg %></li>
+    <% }) %>
+  </ul>
+<% } %>
 </body>
 </html>
