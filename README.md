@@ -17,15 +17,25 @@
 "hoge"を動かすのに必要なライブラリなどを列挙する
  
 $ npm init
+#
 $ npm install express --save
+#
 $ npm install ejs --save
+#
 $ npm install nodemon
+#
 $ npm install mysql
+#
 $ npm install passport
+#
 $ npm install passport-local
+#
 $ npm install jsonwebtoken
+#
 $ npm install --save express-validator
+#
 $ npm install -g db-migrate
+#
 $ npm install db-migrate-mysql
  
 Requirementで列挙したライブラリなどのインストール方法を説明する
