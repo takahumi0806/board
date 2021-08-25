@@ -20,6 +20,8 @@ $ npm install nodemon
 #
 $ npm install mysql
 #
+$ npm install body-parser
+#
 $ npm install passport
 #
 $ npm install passport-local
