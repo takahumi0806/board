@@ -3,14 +3,10 @@
 掲示板アプリ
  
 ユーザー登録後にコメントを投稿できるアプリケーション
- 
-# DEMO
- 
-
- 
+  
 # Features
  
-"hoge"のセールスポイントや差別化などを説明する
+新規ユーザー登録、ログイン機能を実装、今後コメントの投稿、編集、削除機能を追加していく。
  
 # Requirement
  
@@ -48,11 +44,6 @@ git clone https://github.com/hoge/~
 cd examples
 python demo.py
 ```
- 
-# Note
- 
-注意点などがあれば書く
- 
 # Author
 
  
