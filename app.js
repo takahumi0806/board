@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 const port = 3000;
 const passport = require('passport');
-const mysql = require('mysql');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 app.use(express.static('public'));
