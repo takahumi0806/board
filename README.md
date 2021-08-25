@@ -2,19 +2,17 @@
  
 掲示板アプリ
  
-"hoge"が何かを簡潔に紹介する
+ユーザー登録後にコメントを投稿できるアプリケーション
  
 # DEMO
  
-"hoge"の魅力が直感的に伝えわるデモ動画や図解を載せる
+
  
 # Features
  
 "hoge"のセールスポイントや差別化などを説明する
  
 # Requirement
- 
-"hoge"を動かすのに必要なライブラリなどを列挙する
  
 $ npm init
 #
@@ -63,12 +61,5 @@ python demo.py
 * E-mail/yabuta@hotmail.com
  
 # License
-ライセンスを明示する
- 
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
- 
-社内向けなら社外秘であることを明示してる
- 
-"hoge" is Confidential.
 
 Copyright free
