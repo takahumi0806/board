@@ -40,13 +40,15 @@ Requirementで列挙したライブラリなどのインストール方法を説
 DEMOの実行方法など、"hoge"の基本的な使い方を説明する
  
 ```bash
-git clone https://github.com/takahumi0806/board.git
-cd board
-ステーションでmysql.server start
+$ git clone https://github.com/takahumi0806/board.git
+＄ cd board
+$ mysql.server start
+$ mysql -u root -p
+password入力
+$ create database post_db;  databaseの作成
+＄ db-migrate up table作成
 ```
 # Author
-
- 
 * 作成者/yabuta
 * 所属/千葉県市原市出身
 * E-mail/yabuta@hotmail.com
