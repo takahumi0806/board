@@ -64,7 +64,7 @@ module.exports = {
               if (err) {
                 return res.sendStatus(403);
               } else {
-                res.redirect('/post');
+                res.redirect('/bord');
               }
             });
           });
@@ -73,7 +73,6 @@ module.exports = {
     }
   },
   doGetLogin: (req, res) => {
-    console.log(req.session.passport);
     if (req.session.passport === undefined) {
       res.redirect('/');
     } else {
@@ -96,7 +95,7 @@ module.exports = {
       'secret'
     );
     req.session.passport.user['token'] = token;
-    res.redirect('/post');
+    res.redirect('/bord');
   },
   doGetFailure: (req, res) => {
     res.render('index', {

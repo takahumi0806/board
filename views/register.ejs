@@ -1,19 +1,9 @@
 <html lang="ja">
   <head>
-    <meta charset="UTF-8" />
-    <title>入力フォーム</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <%- include('../views/partials/head'); %>
   </head>
   <body>
-    <header>
-      <div id="lesson">Node.js Lesson4</div>
-      <ul>
-        <a href="/bord"><li>みんなの投稿</li></a>
-        <a href="/post"><li>投稿を作成</li></a>
-        <a href="/"><li>Login</li></a>
-        <a href="/register"><li>register</li></a>
-      </ul>
-    </header>
+    <header><%- include('../views/partials/header'); %></header>
     <form action="/" method="POST">
       <table align="center">
         <tr>
@@ -47,12 +37,6 @@
         </tr>
       </table>
     </form>
-    <% if(errorMessage) { %>
-    <ul class="errorMessage">
-      <% errorMessage.forEach((error) => { %>
-      <li id="error"><%= error.msg %></li>
-      <% }) %>
-    </ul>
-    <% } %>
+    <%- include('../views/partials/error'); %>
   </body>
 </html>

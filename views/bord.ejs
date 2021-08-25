@@ -1,19 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
   <head>
-    <meta charset="UTF-8" />
-    <title>入力フォーム</title>
-    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <%- include('../views/partials/head'); %>
   </head>
   <body>
     <header>
-      <div id="lesson">Node.js Lesson4</div>
-      <ul>
-        <a href="/bord"><li>みんなの投稿</li></a>
-        <a href="/post"><li>投稿を作成</li></a>
-        <li id="username"><%= user %></li>
-      </ul>
+      <%- include('../views/partials/headerLogin'); %>
     </header>
+    <span id="append"></span>
     <table align="center" id="bord">
       <tr>
         <td style="width: 1008px">テスト投稿</td>
@@ -23,6 +17,9 @@
       </tr>
       <tr>
         <td tyle="width: 1008px">投稿者: ヤブタ</td>
+      </tr>
+      <tr>
+        <td tyle="width: 1008px"><i class="far fa-heart"></i>0</td>
       </tr>
     </table>
 
@@ -36,6 +33,9 @@
       <tr>
         <td tyle="width: 1008px">投稿者: あああああ</td>
       </tr>
+      <tr>
+        <td tyle="width: 1008px"><i class="far fa-heart"></i>2</td>
+      </tr>
     </table>
 
     <table align="center" id="bord">
@@ -48,6 +48,10 @@
       <tr>
         <td tyle="width: 1008px">投稿者: いいいいい</td>
       </tr>
+      <tr>
+        <td tyle="width: 1008px"><i class="far fa-heart"></i>5</td>
+      </tr>
     </table>
   </body>
+  <%- include('../views/partials/script'); %>
 </html>

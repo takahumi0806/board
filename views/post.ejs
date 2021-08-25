@@ -1,53 +1,40 @@
 <html lang="ja">
-<head>
-	<meta charset="UTF-8">
-	<title>入力フォーム</title>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="/stylesheets/style.css" />
-</head>
-<body>
-  <header>
-    <div id='lesson'>Node.js Lesson4</div>
-    <ul>
-      <a href="/bord"><li >みんなの投稿</li></a>
-      <a href="/post"><li>投稿を作成</li></a>
-      <li id="username"><%= user %></li>
-    </ul>
-  </header>
-  <span id="append"></span>
-  <form action="#" method="POST">
-    <table align="center" id='post'>
-      <tr>
-        <td>タイトル</td>
-      </tr>
-      <tr>
-        <td><input type="text" name="title" style="width: 1008px"></td>
-      </tr>
-      <tr>
-        <td>コンテンツ</td>
-      </tr>
-      <tr>
-        <td><textarea name="content" rows="4" cols="40" style="width: 1008px;height: 204px;"></textarea></td>
-      </tr>
-      <tr>
-        <td>
-          <input type="submit" value="送信" />
-        </td>
-      </tr>
-    </table>
-  </form>
-</body>
-<script>
-  $(document).ready(() => {
-    $('#username').click(() => {
-      console.log('OK')
-      const logout =
-        '<form action="/logout" method="post">' +
-        '<input type="submit" value="LOGOUT">' +
-        '</form>';
-      $('#append').append(logout);
-    });
-   
-  });
-</script>
+  <head>
+    <%- include('../views/partials/head'); %>
+  </head>
+  <body>
+    <header>
+      <%- include('../views/partials/headerLogin'); %>
+    </header>
+    <span id="append"></span>
+    <form action="#" method="POST">
+      <table align="center" id="post">
+        <tr>
+          <td>タイトル</td>
+        </tr>
+        <tr>
+          <td><input type="text" name="title" style="width: 1008px" /></td>
+        </tr>
+        <tr>
+          <td>コンテンツ</td>
+        </tr>
+        <tr>
+          <td>
+            <textarea
+              name="content"
+              rows="4"
+              cols="40"
+              style="width: 1008px; height: 204px"
+            ></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="submit" value="送信" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+    <%- include('../views/partials/script'); %>
 </html>
