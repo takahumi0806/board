@@ -40,9 +40,9 @@ Requirementで列挙したライブラリなどのインストール方法を説
 DEMOの実行方法など、"hoge"の基本的な使い方を説明する
  
 ```bash
-git clone https://github.com/hoge/~
-cd examples
-python demo.py
+git clone https://github.com/takahumi0806/board.git
+cd board
+ステーションでmysql.server start
 ```
 # Author
 
