@@ -28,6 +28,8 @@ $ npm install jsonwebtoken
 #
 $ npm install --save express-validator
 #
+$ npm install express-session
+#
 $ npm install -g db-migrate
 #
 $ npm install db-migrate-mysql
