@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <%- include('../views/partials/head'); %>
+  </head>
+  <body>
+    <header>
+      <%- include('../views/partials/header'); %>
+    </header>
+    <form action="/login" method="POST">
+      <table align="center">
+        <tr>
+          <td>E-mail Address</td>
+        </tr>
+        <tr>
+          <td><input type="email" name="username" /></td>
+        </tr>
+        <tr>
+          <td>Password</td>
+        </tr>
+        <tr>
+          <td><input type="password" name="password" /></td>
+        </tr>
+        <tr>
+          <td>
+            <input type="submit" value="Login" />
+          </td>
+        </tr>
+      </table>
+    </form>
+    <%- include('../views/partials/error'); %>
+  </body>
+</html>

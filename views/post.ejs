@@ -1,0 +1,40 @@
+<html lang="ja">
+  <head>
+    <%- include('../views/partials/head'); %>
+  </head>
+  <body>
+    <header>
+      <%- include('../views/partials/headerLogin'); %>
+    </header>
+    <span id="append"></span>
+    <form action="#" method="POST">
+      <table align="center" id="post">
+        <tr>
+          <td>タイトル</td>
+        </tr>
+        <tr>
+          <td><input type="text" name="title" style="width: 1008px" /></td>
+        </tr>
+        <tr>
+          <td>コンテンツ</td>
+        </tr>
+        <tr>
+          <td>
+            <textarea
+              name="content"
+              rows="4"
+              cols="40"
+              style="width: 1008px; height: 204px"
+            ></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="submit" value="送信" />
+          </td>
+        </tr>
+      </table>
+    </form>
+  </body>
+    <%- include('../views/partials/script'); %>
+</html>
